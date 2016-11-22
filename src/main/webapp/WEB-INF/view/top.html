@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Thymeleafのサンプルです</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+	<p th:text="${message}">Thymeleafのサンプルです</p>
+	<div th:if="${personList != null}">
+		<table border="1">
+			<th>Id</th>
+			<th>名前</th>
+			<th>年齢</th>
+			<th>性別</th>
+			<th colspan="2">操作</th>
+			<tr th:each="person : ${personList}">
+				<td th:text="${person.id}">登録者のID</td>
+				<td th:text="${person.name}">登録者の名前</td>
+				<td th:text="${person.age}">登録者の年齢</td>
+				<td th:text="${person.isex}">登録者の性別</td>
+				<td><a th:href="@{'/edit/id/' + ${person.id} + '/'">編集</a></td>
+				<td><a th:href="@{'/delete/id/' + ${person.id} + '/'">削除</a></td>
+			</tr>
+		</table>
+	</div>
+	<a href="/SpringDataJPAExample/create/">新規追加</a>
+</body>
+</html>

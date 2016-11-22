@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Insert title here</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+	<h3 th:text="${caption}"></h3>
+	<form action="SpringDataJPAExample/create/post/" method="post"
+		th:object="${person}">
+		<table border="1">
+			<tr>
+				<th>名前</th>
+				<td><input type="text" name="name" th:field="*{name}" /></td>
+			</tr>
+			<tr>
+				<th>年齢</th>
+				<td><input type="text" name="age" th:field="*{age}" /></td>
+			</tr>
+			<tr>
+				<th>性別</th>
+				<td><input type="text" name="sex" th:field="*{sex}" /></td>
+			</tr>
+		</table>
+		<input type="submit" value="登録" />
+	</form>
+</body>
+</html>
